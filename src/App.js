@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { AppContext } from "./Contexts/AppContext";
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Layout from "./Components/Layouts/Layout"
+import Cards from "./Components/Cards";
+import { useState } from "react";
 
 function App() {
+
+  const [globalSearchData, setglobalSearchData] = useState('');
+  const [category, setCategory] = useState("All")
+
+  function handleCategory(appCategory){
+    setCategory(appCategory)
+  }
+
+  function handleGlobalSearchData(search){
+    setglobalSearchData(search)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppContext.Provider value={{handleGlobalSearchData, globalSearchData, category, handleCategory}}>
+        <BrowserRouter>
+          <Routes >
+            <Route path="/" element={<Layout/>}>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AppContext.Provider>
     </div>
   );
 }
