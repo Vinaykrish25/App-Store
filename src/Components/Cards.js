@@ -11,7 +11,7 @@ const Cards = () => {
     let isMounted = true;
     async function fetchData() {
       try {
-        let url = `http://localhost:3000/apps`;
+        let url = `https://app-store-backend-aaz1.vercel.app/apps`;
         if (category && category !== 'All') {
           url += `?category=${category}`;
         }
