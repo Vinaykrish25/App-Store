@@ -19,8 +19,8 @@ const Cards = () => {
         const fetchApps = await axios.get(url);
         if (isMounted) {
           setData(fetchApps.data);
-          console.log(fetchApps.data);
-          
+          // console.log(fetchApps.data);
+
         }
       } catch (error) {
         console.error('Error fetching data:', error);
