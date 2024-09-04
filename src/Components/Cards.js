@@ -35,8 +35,7 @@ const Cards = () => {
   }, [category]);
 
   const searchdata = data.filter(
-    (app) => app.name.startsWith(globalSearchData) || app.name.startsWith(globalSearchData.toUpperCase())
-  );
+    (app) => app.name.startsWith(globalSearchData) || app.name.startsWith(globalSearchData.toUpperCase()) || app.name === globalSearchData);
 
   return (
     <div className='cards-container'>
