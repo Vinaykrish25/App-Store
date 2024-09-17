@@ -16,6 +16,7 @@ const Cards = () => {
           url += `?category=${category}`;
         }
                   
+        const fetchApps = await axios.get(url);
         if (isMounted) {
           setData(fetchApps.data);
           // console.log(fetchApps.data);
